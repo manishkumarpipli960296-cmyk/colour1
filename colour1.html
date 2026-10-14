@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Official VIP Colour Prediction - Telegram Signal Channel</title>
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Custom Styles for Animations and Layout -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b0f19;
+    color: #ffffff;
+  }
+  .telegram-btn {
+    background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
+    box-shadow: 0 4px 20px rgba(34, 158, 217, 0.4);
+  }
+  .telegram-btn:active {
+    transform: scale(0.97);
+  }
+  .pulse-tg {
+    animation: pulse-glow 1.8s infinite;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 15px rgba(42, 171, 238, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(42, 171, 238, 0.9); }
+  }
+  .ticker-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-move {
+    display: inline-block;
+    animation: ticker 15s linear infinite;
+  }
+  @keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+  }
+</style>
+</head>
+<body class="pb-24 max-w-md mx-auto min-h-screen border-x border-slate-800 bg-[#0b0f19]">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-cyan-600 to-blue-600 text-white text-[11px] font-bold py-1.5 px-3 text-center flex items-center justify-center gap-1.5 shadow-md">
+    <span class="inline-block w-2 h-2 rounded-full bg-green-400 animate-ping"></span>
+    ⚡ 98% ACCURATE COLOUR TRADING SIGNALS TODAY
+  </div>
+
+  <!-- Main Container -->
+  <div class="px-4 pt-4">
+
+    <!-- Header / Brand -->
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-2">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-500 to-blue-600 flex items-center justify-center text-white text-xl shadow-lg">
+          <i class="fa-brands font-black fa-telegram"></i>
+        </div>
+        <div>
+          <h2 class="font-extrabold text-sm tracking-wide text-white leading-tight">VIP COLOUR SIGNALS</h2>
+          <span class="text-[10px] text-sky-400 flex items-center gap-1 font-semibold">
+            <i class="fa-solid fa-circle text-[6px] text-green-400"></i> 142,850+ Members
+          </span>
+        </div>
+      </div>
+      <a href="https://t.me" target="_blank" class="text-xs bg-sky-500/20 text-sky-400 border border-sky-500/40 px-2.5 py-1 rounded-full font-bold hover:bg-sky-500/30 transition-all">
+        JOIN NOW
+      </a>
+    </div>
+
+    <!-- Hero Title & Subtitle -->
+    <div class="text-center my-4">
+      <span class="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-500/40 text-amber-300 text-[11px] font-bold px-3 py-1 rounded-full inline-block mb-2">
+        👑 #1 Telegram Signal Community
+      </span>
+      <h1 class="text-2xl font-black text-white leading-snug">
+        Get Daily Live <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-300">Colour Prediction</span> Signals
+      </h1>
+      <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+        Join our free VIP Telegram channel for accurate Red, Green & Violet prediction signals updated every 3 minutes.
+      </p>
+    </div>
+
+    <!-- Primary Hero CTA - JOIN TELEGRAM -->
+    <a href="https://t.me" target="_blank" class="telegram-btn pulse-tg w-full py-3.5 px-4 rounded-xl font-extrabold text-white text-base flex items-center justify-center gap-2.5 text-center transition-all mb-5 border border-sky-300/30">
+      <i class="fa-brands fa-telegram text-2xl"></i>
+      <span>JOIN TELEGRAM CHANNEL NOW</span>
+      <i class="fa-solid fa-arrow-right text-xs bg-white/20 p-1 rounded-full"></i>
+    </a>
+
+    <!-- Live Demo Countdown & Game Box -->
+    <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 shadow-xl mb-5">
+      <!-- Period Header -->
+      <div class="flex justify-between items-center bg-slate-800/60 p-2 rounded-xl mb-3 border border-slate-700/50">
+        <div>
+          <span class="text-[10px] text-slate-400 uppercase font-semibold block">Period ID</span>
+          <span class="text-xs font-mono font-bold text-slate-200" id="periodId">202610140392</span>
+        </div>
+        <div class="text-right">
+          <span class="text-[10px] text-slate-400 uppercase font-semibold block">Next Prediction In</span>
+          <div class="text-amber-400 font-mono font-black text-sm flex items-center gap-1 justify-end">
+            <i class="fa-regular fa-clock text-xs"></i>
+            <span id="countdown">00:28</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Signals Widget Demo -->
+      <p class="text-[11px] text-slate-400 font-medium mb-2 text-center">🎯 Try Demo Colour Pick (Test Your Luck):</p>
+      
+      <!-- Colour Choice Buttons -->
+      <div class="grid grid-cols-3 gap-2 mb-3">
+        <button onclick="makeChoice('Green')" class="bg-gradient-to-b from-emerald-500 to-emerald-700 hover:from-emerald-400 hover:to-emerald-600 text-white font-black py-2.5 rounded-xl text-xs flex flex-col items-center shadow-lg active:scale-95 transition-all">
+          <i class="fa-solid fa-circle text-xs mb-0.5 text-emerald-200"></i>
+          <span>GREEN</span>
+          <span class="text-[9px] font-normal opacity-80">2x Win</span>
+        </button>
+
+        <button onclick="makeChoice('Violet')" class="bg-gradient-to-b from-purple-600 to-indigo-800 hover:from-purple-500 hover:to-indigo-700 text-white font-black py-2.5 rounded-xl text-xs flex flex-col items-center shadow-lg active:scale-95 transition-all">
+          <i class="fa-solid fa-gem text-xs mb-0.5 text-purple-200"></i>
+          <span>VIOLET</span>
+          <span class="text-[9px] font-normal opacity-80">4.5x Win</span>
+        </button>
+
+        <button onclick="makeChoice('Red')" class="bg-gradient-to-b from-rose-500 to-red-700 hover:from-rose-400 hover:to-red-600 text-white font-black py-2.5 rounded-xl text-xs flex flex-col items-center shadow-lg active:scale-95 transition-all">
+          <i class="fa-solid fa-circle text-xs mb-0.5 text-rose-200"></i>
+          <span>RED</span>
+          <span class="text-[9px] font-normal opacity-80">2x Win</span>
+        </button>
+      </div>
+
+      <!-- Result Container (Hidden initial) -->
+      <div id="demoResult" class="hidden text-center p-2 rounded-xl bg-slate-800/80 border border-slate-700 text-xs">
+        <!-- JS Inserted Content -->
+      </div>
+    </div>
+
+    <!-- Live Telegram Signal Proof / Winners Ticker -->
+    <div class="mb-5">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live Member Wins
+        </span>
+        <span class="text-[10px] text-sky-400 font-semibold">Via Telegram VIP</span>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-2.5 ticker-wrap">
+        <div class="ticker-move text-xs flex items-center gap-4 text-slate-300" id="tickerContent">
+          <!-- Ticker items populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Join Telegram Section -->
+    <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 mb-5">
+      <h3 class="text-sm font-extrabold text-white text-center mb-3">🔥 Why Join Our Telegram Channel?</h3>
+      
+      <div class="space-y-2.5 text-xs">
+        <div class="flex items-start gap-2.5 bg-slate-800/40 p-2.5 rounded-xl border border-slate-800">
+          <div class="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <div>
+            <p class="font-bold text-white">98% Signal Accuracy</p>
+            <p class="text-slate-400 text-[11px]">Direct color & period calls verified by expert analysts.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-2.5 bg-slate-800/40 p-2.5 rounded-xl border border-slate-800">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <p class="font-bold text-white">Fast Live Updates</p>
+            <p class="text-slate-400 text-[11px]">Instant alerts sent 1 minute before period lock time.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-2.5 bg-slate-800/40 p-2.5 rounded-xl border border-slate-800">
+          <div class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <div>
+            <p class="font-bold text-white">Daily Gift Codes & Tips</p>
+            <p class="text-slate-400 text-[11px]">Free promotional bonuses & risk management strategies.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Inside Features Card -->
+      <a href="https://t.me" target="_blank" class="telegram-btn w-full mt-4 py-2.5 rounded-xl font-bold text-white text-xs flex items-center justify-center gap-2">
+        <i class="fa-brands fa-telegram text-base"></i>
+        JOIN FREE TELEGRAM CHANNEL
+      </a>
+    </div>
+
+    <!-- Trust Stats -->
+    <div class="grid grid-cols-3 gap-2 text-center mb-6">
+      <div class="bg-slate-900/40 border border-slate-800 p-2 rounded-xl">
+        <p class="text-amber-400 font-extrabold text-sm">140K+</p>
+        <p class="text-[10px] text-slate-400">Members</p>
+      </div>
+      <div class="bg-slate-900/40 border border-slate-800 p-2 rounded-xl">
+        <p class="text-emerald-400 font-extrabold text-sm">98%</p>
+        <p class="text-[10px] text-slate-400">Accuracy</p>
+      </div>
+      <div class="bg-slate-900/40 border border-slate-800 p-2 rounded-xl">
+        <p class="text-sky-400 font-extrabold text-sm">24/7</p>
+        <p class="text-[10px] text-slate-400">Live Signals</p>
+      </div>
+    </div>
+
+    <!-- Footer Note / Disclaimer -->
+    <div class="text-center text-[10px] text-slate-500 space-y-1 pb-4">
+      <p>Educational and analytical predictions only. No financial guarantee provided.</p>
+      <p>© 2026 VIP Telegram Colour Trading Signals. All rights reserved.</p>
+    </div>
+
+  </div>
+
+  <!-- STICKY BOTTOM BAR - JOIN TELEGRAM BUTTON -->
+  <div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-slate-950/95 backdrop-blur-md border-t border-slate-800/80 p-3 z-50 shadow-2xl">
+    <a href="https://t.me" target="_blank" class="telegram-btn w-full py-3 px-4 rounded-xl font-black text-white text-sm flex items-center justify-center gap-2.5 shadow-lg active:scale-95 transition-all">
+      <i class="fa-brands fa-telegram text-xl"></i>
+      <span>JOIN TELEGRAM CHANNEL NOW</span>
+      <i class="fa-solid fa-chevron-right text-xs"></i>
+    </a>
+  </div>
+
+  <!-- JavaScript for Interactive Widget & Dynamic Elements -->
+  <script>
+    // Countdown Timer Logic
+    let timeLeft = 28;
+    const countdownEl = document.getElementById('countdown');
+    const periodEl = document.getElementById('periodId');
+    let periodNumber = 202610140392;
+
+    setInterval(() => {
+      timeLeft--;
+      if (timeLeft < 0) {
+        timeLeft = 30;
+        periodNumber++;
+        periodEl.innerText = periodNumber;
+      }
+      const secs = timeLeft < 10 ? '0' + timeLeft : timeLeft;
+      countdownEl.innerText = `00:${secs}`;
+    }, 1000);
+
+    // Demo Game Choice Interactive Logic
+    function makeChoice(color) {
+      const resultDiv = document.getElementById('demoResult');
+      resultDiv.classList.remove('hidden');
+      
+      const colors = ['Green', 'Red', 'Violet'];
+      const actualWinner = colors[Math.floor(Math.random() * colors.length)];
+      
+      let badgeColor = 'bg-emerald-500';
+      if(color === 'Red') badgeColor = 'bg-rose-500';
+      if(color === 'Violet') badgeColor = 'bg-purple-500';
+
+      let winStatus = color === actualWinner 
+        ? `<span class="text-emerald-400 font-bold">🎉 WINNER! You predicted ${color}</span>` 
+        : `<span class="text-slate-300">You selected <b class="text-white">${color}</b>. Result was <b class="text-amber-400">${actualWinner}</b>.</span>`;
+
+      resultDiv.innerHTML = `
+        <div class="mb-1">${winStatus}</div>
+        <p class="text-[10px] text-sky-400 font-semibold">Want 98% accurate daily signals? <a href="https://t.me" target="_blank" class="underline font-bold">Join Telegram Now</a></p>
+      `;
+    }
+
+    // Populate Ticker Data
+    const mockWins = [
+      "📱 User +91****8391 won ₹2,400 on Green (Period 391)",
+      "📱 User +91****1029 won ₹5,000 on Red (Period 390)",
+      "📱 User +91****5542 won ₹12,500 on Violet (Period 389)",
+      "📱 VIP Telegram Signal: Green WIN ✅",
+      "📱 VIP Telegram Signal: Red WIN ✅"
+    ];
+
+    const tickerContent = document.getElementById('tickerContent');
+    const tickerText = mockWins.join(' &nbsp;•&nbsp; ') + ' &nbsp;•&nbsp; ' + mockWins.join(' &nbsp;•&nbsp; ');
+    tickerContent.innerHTML = tickerText;
+  </script>
+</body>
+</html>
